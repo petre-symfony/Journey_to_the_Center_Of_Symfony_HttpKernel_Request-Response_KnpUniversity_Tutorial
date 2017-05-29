@@ -27,11 +27,5 @@ $kernel = new AppKernel('dev', true);
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 
-$request2 = Request::create('/dinosaurs/9');
-$response2 = $kernel->handle($request2);
-
-echo $response->getContent();
-echo $response2->getContent();
-
-//$response->send();
-//$kernel->terminate($request, $response);
+$response->send();
+$kernel->terminate($request, $response);
