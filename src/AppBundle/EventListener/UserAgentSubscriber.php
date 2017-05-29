@@ -3,6 +3,7 @@ namespace AppBundle\EventListener;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 
 class UserAgentSubscriber implements EventSubscriberInterface{
   /**
@@ -14,9 +15,11 @@ class UserAgentSubscriber implements EventSubscriberInterface{
     $this->logger = $logger;
   }
 
-  public function onKernelRequest($event) {
+  public function onKernelRequest(GetResponseEvent $event) {
     $this->logger->info('RRRRAAAAAWWWWR');  
-    dump($event);
+    $request = $event->getRequest();
+    $userAgent = $request->headers->get('User-Agent');
+    $this->logger->info('The user agent is: '.$userAgent);
   }
   
   public static function getSubscribedEvents() {
