@@ -14,8 +14,9 @@ class UserAgentSubscriber implements EventSubscriberInterface{
     $this->logger = $logger;
   }
 
-  public function onKernelRequest() {
+  public function onKernelRequest($event) {
     $this->logger->info('RRRRAAAAAWWWWR');  
+    dump($event);
   }
   
   public static function getSubscribedEvents() {
