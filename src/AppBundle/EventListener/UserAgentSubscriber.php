@@ -2,10 +2,20 @@
 namespace AppBundle\EventListener;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Psr\Log\LoggerInterface;
 
 class UserAgentSubscriber implements EventSubscriberInterface{
+  /**
+   * @var LoggerInterface
+   */
+  private $logger;
+  
+  public function __construct(LoggerInterface $logger) {
+    $this->logger = $logger;
+  }
+
   public function onKernelRequest() {
-    die('it works!');  
+    $this->logger->info('RRRRAAAAAWWWWR');  
   }
   
   public static function getSubscribedEvents() {
@@ -13,6 +23,4 @@ class UserAgentSubscriber implements EventSubscriberInterface{
       'kernel.request' => 'onKernelRequest'
     );
   }
-
-//put your code here
 }
