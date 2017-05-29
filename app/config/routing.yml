@@ -2,7 +2,7 @@ _app_bundle_annotations:
   resource: @AppBundle/Controller
   type:     annotation
 
-dinosaur_list:
-  path: /
-  defaults:
-    _controller: AppBundle:Dinosaur:index
+#dinosaur_list:
+#    path: /
+#    defaults:
+#        _controller: AppBundle:Dinosaur:index
