@@ -4,6 +4,7 @@ namespace AppBundle\EventListener;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
 
 class UserAgentSubscriber implements EventSubscriberInterface{
   /**
@@ -24,7 +25,8 @@ class UserAgentSubscriber implements EventSubscriberInterface{
   
   public static function getSubscribedEvents() {
     return array(
-      'kernel.request' => 'onKernelRequest'
+      //constant that means kernel.request  
+      KernelEvents::REQUEST => 'onKernelRequest'
     );
   }
 }
