@@ -25,7 +25,7 @@ class UserAgentSubscriber implements EventSubscriberInterface{
     
     if(rand(0, 100) > 50){
       $response = new Response('Come back later!');
-      $event->setResponse($response);
+      //$event->setResponse($response);
     }
   }
   
