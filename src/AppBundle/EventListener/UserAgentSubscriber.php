@@ -14,9 +14,9 @@ class UserAgentSubscriber implements EventSubscriberInterface{
   public function __construct(LoggerInterface $logger) {
     $this->logger = $logger;
   }
-
+  
   public function onKernelRequest(GetResponseEvent $event) {
-    $this->logger->info('RRRRAAAAAWWWWR');  
+    $this->logger->info('RRRRAAAAAWWWWR');
     $request = $event->getRequest();
     $userAgent = $request->headers->get('User-Agent');
     $this->logger->info('The user agent is: '.$userAgent);
