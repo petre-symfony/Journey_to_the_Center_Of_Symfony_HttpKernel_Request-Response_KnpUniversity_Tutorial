@@ -23,7 +23,7 @@ class DinosaurController extends Controller {
   /**
    * @Route("/dinosaurs/{id}", name="dinosaur_show")
    */
-  public function showAction($id, $foo, $bar){
+  public function showAction($id){
     $dino = $this->getDoctrine()
       ->getRepository('AppBundle:Dinosaur')
       ->find($id);
