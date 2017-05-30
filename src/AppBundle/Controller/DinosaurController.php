@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Dinosaur;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class DinosaurController extends Controller {
   /**
@@ -23,7 +24,7 @@ class DinosaurController extends Controller {
   /**
    * @Route("/dinosaurs/{id}", name="dinosaur_show")
    */
-  public function showAction($id){
+  public function showAction($id, Request $request){
     $dino = $this->getDoctrine()
       ->getRepository('AppBundle:Dinosaur')
       ->find($id);
