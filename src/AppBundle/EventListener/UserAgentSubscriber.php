@@ -27,6 +27,10 @@ class UserAgentSubscriber implements EventSubscriberInterface{
       $response = new Response('Come back later!');
       //$event->setResponse($response);
     }
+    
+    $request->attributes->set('_controller', function(){
+      return new Response('Hello world');
+    });
   }
   
   public static function getSubscribedEvents() {
