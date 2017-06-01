@@ -17,6 +17,7 @@ class DinosaurController extends Controller {
       ->getRepository('AppBundle:Dinosaur')
       ->findAll();
     
+    /**
     $request = new Request();
     $request->attributes->set(
       '_controller',
@@ -27,6 +28,7 @@ class DinosaurController extends Controller {
       $request,
       HttpKernelInterface::SUB_REQUEST
     );
+    */
     
     return $this->render('dinosaurs/index.html.twig', [
       'dinos' => $dinos,
