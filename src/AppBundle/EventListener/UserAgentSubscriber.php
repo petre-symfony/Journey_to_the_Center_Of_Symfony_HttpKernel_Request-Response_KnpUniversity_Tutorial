@@ -28,6 +28,8 @@ class UserAgentSubscriber implements EventSubscriberInterface{
       //$event->setResponse($response);
     }
     
+    $isLinux = strpos($userAgent, 'Linux') !== false;
+    $request->attributes->set('isLinux', $isLinux);
     
     /*
     $request->attributes->set('_controller', function($id){
