@@ -11,13 +11,14 @@ class DinosaurController extends Controller {
   /**
    * @Route("/", name="dinosaur_list")
    */
-  public function indexAction(){
+  public function indexAction($isLinux){
     $dinos = $this->getDoctrine()
       ->getRepository('AppBundle:Dinosaur')
       ->findAll();
 
     return $this->render('dinosaurs/index.html.twig', [
       'dinos' => $dinos,
+      'isLinux' => $isLinux  
     ]);
   }
 
