@@ -40,7 +40,9 @@
         <div class="clearfix">
         </div>
       </div>
-      {{ render(controller('AppBundle:Dinosaur:_latestTweets')) }}
+      {{ render(controller('AppBundle:Dinosaur:_latestTweets', {
+        'userOnLinux': app.request.attributes.get('isLinux')
+      })) }}
     </div>
 
     {% block javascripts %}{% endblock %}
