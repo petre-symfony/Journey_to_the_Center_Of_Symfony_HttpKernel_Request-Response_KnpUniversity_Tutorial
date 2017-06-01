@@ -29,6 +29,9 @@ class UserAgentSubscriber implements EventSubscriberInterface{
     }
     
     $isLinux = strpos($userAgent, 'Linux') !== false;
+    if($request->query->get('notLinux')){
+      $isLinux = false;
+    }
     $request->attributes->set('isLinux', $isLinux);
     
     /*
