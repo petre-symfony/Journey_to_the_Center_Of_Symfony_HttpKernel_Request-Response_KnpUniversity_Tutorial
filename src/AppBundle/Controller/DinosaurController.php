@@ -39,7 +39,7 @@ class DinosaurController extends Controller {
     ]);
   }
   
-  public function _latestTweetsAction(){
+  public function _latestTweetsAction($isLinux){
     $tweets = [
       'Dinosaur can have existential crises too you know.',
       'Eating lallipaps...',
@@ -47,7 +47,8 @@ class DinosaurController extends Controller {
     ];
     
     return $this->render('dinosaurs/_latestTweets.html.twig', [
-      'tweets' => $tweets    
+      'tweets'  => $tweets,
+      'isLinux' => $isLinux  
     ]);
   }
 } 

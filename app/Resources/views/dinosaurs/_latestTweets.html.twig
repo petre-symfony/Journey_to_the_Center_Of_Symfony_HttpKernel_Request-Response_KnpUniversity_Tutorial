@@ -1,5 +1,8 @@
 <div class="navbar-left tweets">
   <p class="text-center">Tweets from T-Rex Problems</p>
+  <p>
+    {{ isLinux ? 'on a Linux' : 'not on a Linux' }}
+  </p>
   <ul>
     {% for tweet in tweets %}
       <li>{{ tweet }}</li>
